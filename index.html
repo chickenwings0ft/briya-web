@@ -99,6 +99,43 @@
     .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); }
     .nav-links a:hover { color: #fff; }
 
+    /* dropdown */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+    .nav-dropdown > a svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 2.5; transition: transform .2s; }
+    .nav-dropdown:hover > a svg { transform: rotate(180deg); stroke: #fff; }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      min-width: 210px;
+      padding: 6px 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .18s, transform .18s;
+      transform: translateX(-50%) translateY(-4px);
+      z-index: 200;
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #142740 !important;
+      white-space: nowrap;
+      transition: background .15s;
+    }
+    .dropdown-menu a:hover { background: #f4f6f9; color: #1a5fa8 !important; }
+
     /* ─── MOBILE MENU ─── */
     .nav-right { display: flex; align-items: center; gap: 10px; }
     .nav-cta { font-size: 13px; padding: 9px 18px; }
@@ -732,7 +769,20 @@
 
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#services">Services</a></li>
+        <li class="nav-dropdown">
+          <a href="#services">
+            Services
+            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="driveway-cleaning.html">Driveway Cleaning</a>
+            <a href="house-washing.html">House Washing</a>
+            <a href="roof-cleaning.html">Roof Cleaning</a>
+            <a href="gutter-cleaning.html">Gutter Cleaning</a>
+            <a href="window-cleaning.html">Window Cleaning</a>
+            <a href="solar-panel-cleaning.html">Solar Panel Cleaning</a>
+          </div>
+        </li>
         <li><a href="#faq">FAQs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -747,7 +797,13 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="#" onclick="closeMobileNav()">Home</a>
-      <a href="#services" onclick="closeMobileNav()">Services</a>
+      <a href="#services" onclick="closeMobileNav()" style="font-weight:600;color:#fff;">Services</a>
+      <a href="driveway-cleaning.html" style="padding-left:36px;font-size:13px;">→ Driveway Cleaning</a>
+      <a href="house-washing.html" style="padding-left:36px;font-size:13px;">→ House Washing</a>
+      <a href="roof-cleaning.html" style="padding-left:36px;font-size:13px;">→ Roof Cleaning</a>
+      <a href="gutter-cleaning.html" style="padding-left:36px;font-size:13px;">→ Gutter Cleaning</a>
+      <a href="window-cleaning.html" style="padding-left:36px;font-size:13px;">→ Window Cleaning</a>
+      <a href="solar-panel-cleaning.html" style="padding-left:36px;font-size:13px;">→ Solar Panel Cleaning</a>
       <a href="#faq" onclick="closeMobileNav()">FAQs</a>
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
       <a href="#contact" class="mobile-menu-cta" onclick="closeMobileNav()">Get a Free Quote</a>
