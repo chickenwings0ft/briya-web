@@ -79,33 +79,17 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--white);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 68px;
+      height: 72px;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo-icon {
-      width: 42px;
-      height: 42px;
-      background: var(--navy);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo-icon svg { width: 22px; height: 22px; fill: var(--white); }
-    .logo-text { line-height: 1.1; }
-    .logo-text strong { font-size: 18px; font-weight: 800; color: var(--navy); letter-spacing: .04em; }
-    .logo-text small { font-size: 10px; color: var(--muted); display: block; letter-spacing: .06em; text-transform: uppercase; }
+    .logo img { width: auto; height: 60px; display: block; }
 
     .nav-links {
       display: flex;
@@ -118,38 +102,234 @@
 
     /* ─── HERO ─── */
     .hero {
-      padding: 64px 0 0;
+      position: relative;
       overflow: hidden;
+      background: linear-gradient(135deg, #0a1a2e 0%, #142740 50%, #1a3a5c 100%);
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
     }
+
+    /* animated background blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.18;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    .hero-blob-1 { width: 500px; height: 500px; background: #2272cc; top: -100px; right: -100px; animation-delay: 0s; }
+    .hero-blob-2 { width: 350px; height: 350px; background: #0ea5e9; bottom: 50px; left: -80px; animation-delay: -3s; }
+    .hero-blob-3 { width: 250px; height: 250px; background: #f0a500; top: 40%; right: 30%; animation-delay: -5s; }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(20px, -20px) scale(1.05); }
+      66%       { transform: translate(-15px, 15px) scale(0.97); }
+    }
+
     .hero-inner {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 56px;
       align-items: center;
+      flex: 1;
+      padding: 72px 0 56px;
     }
-    .hero-heading {
-      font-size: 48px;
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-    .hero-sub {
-      font-size: 16px;
-      color: var(--muted);
-      margin-bottom: 32px;
-      max-width: 440px;
-    }
-    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-    .hero-img { border-radius: var(--radius); overflow: hidden; }
-    .hero-img .img-placeholder { min-height: 360px; border-radius: var(--radius); }
 
-    .trust-bar {
-      margin-top: 40px;
-      border-top: 1px solid var(--border);
-      padding: 18px 0;
+    /* floating badge */
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(8px);
+      animation: fadeSlideUp .6s ease both;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: #22d3ee;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(1.4); }
+    }
+
+    .hero-heading {
+      font-size: 54px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.08;
+      margin-bottom: 20px;
+      animation: fadeSlideUp .6s .1s ease both;
+    }
+    .hero-heading span { color: #38bdf8; }
+
+    .hero-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 36px;
+      max-width: 460px;
+      line-height: 1.7;
+      animation: fadeSlideUp .6s .2s ease both;
+    }
+
+    .hero-ctas {
       display: flex;
-      gap: 32px;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+      animation: fadeSlideUp .6s .3s ease both;
+    }
+    .btn-hero-primary {
+      background: #2272cc;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(34,114,204,0.4);
+    }
+    .btn-hero-primary:hover { background: #1a5fa8; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(34,114,204,0.5); }
+    .btn-hero-outline {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background .2s, transform .2s;
+      backdrop-filter: blur(8px);
+    }
+    .btn-hero-outline:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+
+    /* hero trust pills */
+    .hero-trust {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeSlideUp .6s .4s ease both;
+    }
+    .hero-trust-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 100px;
+      backdrop-filter: blur(6px);
+    }
+    .hero-trust-pill svg { width: 14px; height: 14px; stroke: #22d3ee; fill: none; stroke-width: 2.5; flex-shrink: 0; }
+
+    /* hero image side */
+    .hero-img-wrap {
+      position: relative;
+      animation: fadeSlideLeft .7s .15s ease both;
+    }
+    .hero-img-wrap img {
+      border-radius: 16px;
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .hero-img-wrap .img-placeholder {
+      min-height: 460px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.4);
+      border: 1px dashed rgba(255,255,255,0.2);
+    }
+
+    /* floating stat card */
+    .hero-stat-card {
+      position: absolute;
+      bottom: -20px;
+      left: -28px;
+      background: white;
+      border-radius: 14px;
+      padding: 16px 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 190px;
+      animation: fadeSlideUp .7s .5s ease both;
+    }
+    .hero-stat-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #2272cc, #0ea5e9);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-stat-icon svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 2; }
+    .hero-stat-num { font-size: 22px; font-weight: 800; color: var(--navy); line-height: 1; }
+    .hero-stat-label { font-size: 11px; color: var(--muted); font-weight: 500; margin-top: 2px; }
+
+    /* floating insured badge */
+    .hero-insured-card {
+      position: absolute;
+      top: 24px;
+      right: -20px;
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: fadeSlideLeft .7s .6s ease both;
+    }
+    .hero-insured-card svg { width: 18px; height: 18px; stroke: #22d3ee; fill: none; stroke-width: 2; }
+    .hero-insured-card span { font-size: 13px; font-weight: 700; color: white; }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideLeft {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* bottom trust bar */
+    .trust-bar {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
       flex-wrap: wrap;
     }
     .trust-item {
@@ -158,14 +338,10 @@
       gap: 8px;
       font-size: 13px;
       font-weight: 600;
-      color: var(--muted);
+      color: rgba(255,255,255,0.7);
     }
-    .trust-dot {
-      width: 8px; height: 8px;
-      background: var(--blue);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    .trust-item svg { width: 16px; height: 16px; stroke: #22d3ee; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .trust-dot { display: none; }
 
     /* ─── BUILD-UP SECTION ─── */
     .buildup-inner {
@@ -430,16 +606,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="#" class="logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/>
-            <path d="M9 21V12h6v9" fill="var(--navy)"/>
-          </svg>
-        </div>
-        <div class="logo-text">
-          <strong>BRIYA</strong>
-          <small>Exterior Cleaning</small>
-        </div>
+        <img src="Logo Briya Exterior Cleaning.jpg" alt="Briya Exterior Cleaning" />
       </a>
 
       <ul class="nav-links">
@@ -458,30 +625,90 @@
        HERO
   ══════════════════════════════════════════════ -->
   <section class="hero">
+    <!-- background blobs -->
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+
     <div class="container">
       <div class="hero-inner">
         <!-- Text -->
         <div>
-          <h1 class="hero-heading">EXTERIOR CLEANING YOU CAN TRUST</h1>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Gold Coast &amp; Surrounding Areas
+          </div>
+          <h1 class="hero-heading">EXTERIOR CLEANING<br>YOU CAN <span>TRUST</span></h1>
           <p class="hero-sub">Driveways, house washing, roofs, gutters, solar panels and windows across the Gold Coast and surrounding areas.</p>
           <div class="hero-ctas">
-            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
-            <a href="#services" class="btn btn-outline">See What We Clean</a>
+            <a href="#contact" class="btn-hero-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Get a Free Quote
+            </a>
+            <a href="#services" class="btn-hero-outline">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              See What We Clean
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-trust-pill">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Fully Insured
+            </div>
+            <div class="hero-trust-pill">
+              <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="2"/></svg>
+              Owner Operated
+            </div>
+            <div class="hero-trust-pill">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              Fast Quotes
+            </div>
           </div>
         </div>
 
         <!-- Image -->
-        <div class="hero-img">
-          <img src="HERO SECTION.png" alt="Exterior cleaning Gold Coast" style="border-radius:var(--radius);width:100%;height:380px;object-fit:cover;" />
+        <div class="hero-img-wrap">
+          <img src="HERO SECTION.png" alt="Exterior cleaning Gold Coast" />
+
+          <!-- floating stat card -->
+          <div class="hero-stat-card">
+            <div class="hero-stat-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="hero-stat-num">500+</div>
+              <div class="hero-stat-label">Properties Cleaned</div>
+            </div>
+          </div>
+
+          <!-- floating insured badge -->
+          <div class="hero-insured-card">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Fully Insured</span>
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- Trust bar -->
-      <div class="trust-bar">
-        <div class="trust-item"><span class="trust-dot"></span> Owner Operated</div>
-        <div class="trust-item"><span class="trust-dot"></span> Fully Insured</div>
-        <div class="trust-item"><span class="trust-dot"></span> Fast Quotes</div>
-        <div class="trust-item"><span class="trust-dot"></span> Gold Coast &amp; Surrounding Areas</div>
+    <!-- Trust bar -->
+    <div class="trust-bar">
+      <div class="container" style="display:flex;gap:48px;flex-wrap:wrap;justify-content:center;">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Owner Operated
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Fully Insured
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Fast Quotes
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Gold Coast &amp; Surrounding Areas
+        </div>
       </div>
     </div>
   </section>
