@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Briya Website <noreply@briya.com.au>',
-        to: ['info@briya.com.au'],
+        to: ['info@briya.com.au', 'jonathan.rodero.martinez@gmail.com'],
         reply_to: email,
         subject: `Nuevo presupuesto – ${firstName} ${lastName} (${servicesText})`,
         html,
