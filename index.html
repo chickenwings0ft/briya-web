@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Briya Exterior Cleaning – Gold Coast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy:   #142740;
+      --blue:   #1a5fa8;
+      --blue-light: #2272cc;
+      --accent: #f0a500;
+      --bg-alt: #f4f6f9;
+      --text:   #1c1c1c;
+      --muted:  #5a6272;
+      --border: #dde2eb;
+      --white:  #ffffff;
+      --radius: 8px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; width: 100%; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 72px 0; }
+    .section-alt { background: var(--bg-alt); }
+    .tag { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+    .section-title { font-size: 32px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+    .section-sub { font-size: 16px; color: var(--muted); max-width: 620px; margin: 12px auto 0; }
+    .centered { text-align: center; }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn:hover { opacity: .88; }
+    .btn-primary { background: var(--navy); color: var(--white); }
+    .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+    .btn-white  { background: var(--white); color: var(--navy); }
+    .btn-blue   { background: var(--blue-light); color: var(--white); }
+
+    /* image placeholder */
+    .img-placeholder {
+      background: #c8d4e3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7a90aa;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      border-radius: var(--radius);
+      min-height: 220px;
+    }
+    .img-placeholder span { opacity: .6; }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon svg { width: 22px; height: 22px; fill: var(--white); }
+    .logo-text { line-height: 1.1; }
+    .logo-text strong { font-size: 18px; font-weight: 800; color: var(--navy); letter-spacing: .04em; }
+    .logo-text small { font-size: 10px; color: var(--muted); display: block; letter-spacing: .06em; text-transform: uppercase; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--text); }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 64px 0 0;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-heading {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      max-width: 440px;
+    }
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-img { border-radius: var(--radius); overflow: hidden; }
+    .hero-img .img-placeholder { min-height: 360px; border-radius: var(--radius); }
+
+    .trust-bar {
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .trust-dot {
+      width: 8px; height: 8px;
+      background: var(--blue);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ─── BUILD-UP SECTION ─── */
+    .buildup-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .buildup-text h2 { font-size: 30px; font-weight: 800; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+    .buildup-text p { color: var(--muted); }
+    .buildup-img .img-placeholder { min-height: 300px; }
+
+    /* ─── WHY SECTION ─── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .why-card {
+      text-align: center;
+      padding: 28px 16px;
+      border-radius: var(--radius);
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+    .why-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 14px;
+      background: var(--bg-alt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .why-icon svg { width: 24px; height: 24px; stroke: var(--blue); fill: none; stroke-width: 2; }
+    .why-card p { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.4; }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .service-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--white);
+    }
+    .service-card .img-placeholder { min-height: 200px; border-radius: 0; }
+    .service-body { padding: 20px; }
+    .service-body h3 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .service-body p { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .service-meta { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    .service-meta strong { color: var(--text); }
+    .service-card .btn { margin-top: 14px; font-size: 13px; padding: 9px 18px; }
+
+    /* ─── WHO WE WORK WITH ─── */
+    .who-grid {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .who-item { text-align: center; }
+    .who-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 14px;
+      background: var(--bg-alt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .who-icon svg { width: 36px; height: 36px; stroke: var(--navy); fill: none; stroke-width: 1.5; }
+    .who-item p { font-size: 14px; font-weight: 600; color: var(--navy); max-width: 120px; }
+
+    /* ─── AREAS ─── */
+    .areas-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 680px;
+    }
+    .areas-pin {
+      width: 40px; height: 40px;
+      flex-shrink: 0;
+      background: var(--blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .areas-pin svg { width: 20px; height: 20px; stroke: var(--white); fill: none; stroke-width: 2; }
+    .areas-text h2 { font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .areas-text p { font-size: 15px; color: var(--muted); }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      background: var(--navy);
+      padding: 28px 0;
+    }
+    .cta-banner-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .cta-banner-inner svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2; flex-shrink: 0; }
+    .cta-banner p { font-size: 14px; color: rgba(255,255,255,.85); }
+    .cta-banner p strong { color: var(--white); }
+
+    /* ─── CONTACT FORM ─── */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-info h2 { font-size: 32px; font-weight: 800; color: var(--navy); margin-bottom: 32px; line-height: 1.2; }
+    .contact-detail { margin-bottom: 24px; }
+    .contact-detail label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+    .contact-detail p { font-size: 15px; color: var(--text); font-weight: 500; }
+    .contact-detail small { font-size: 13px; color: var(--muted); display: block; margin-top: 2px; }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--navy); display: block; margin-bottom: 6px; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--blue); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+    /* ─── MAP PLACEHOLDER ─── */
+    .map-placeholder {
+      background: var(--bg-alt);
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list { max-width: 780px; margin: 48px auto 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      gap: 16px;
+    }
+    .faq-q svg { width: 18px; height: 18px; stroke: var(--blue); fill: none; stroke-width: 2.5; flex-shrink: 0; transition: transform .25s; }
+    .faq-item.open .faq-q svg { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding-top: 12px; }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.75);
+      padding: 48px 0 28px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      margin-bottom: 24px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .footer-logo-icon {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-logo-icon svg { width: 18px; height: 18px; fill: var(--white); }
+    .footer-logo strong { font-size: 17px; font-weight: 800; color: var(--white); letter-spacing: .04em; }
+    .footer-logo small { font-size: 9px; color: rgba(255,255,255,.5); display: block; letter-spacing: .06em; text-transform: uppercase; }
+    .footer-tagline { font-size: 13px; max-width: 280px; line-height: 1.6; }
+    .footer-contact h4 { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 14px; letter-spacing: .04em; text-transform: uppercase; }
+    .footer-contact p { font-size: 13px; margin-bottom: 6px; }
+    .footer-contact a:hover { color: var(--white); }
+    .footer-bottom { font-size: 12px; text-align: center; color: rgba(255,255,255,.4); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-inner,
+      .buildup-inner,
+      .contact-inner { grid-template-columns: 1fr; }
+      .hero-img { order: -1; }
+      .why-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    }
+    @media (max-width: 600px) {
+      .hero-heading { font-size: 34px; }
+      .section-title { font-size: 26px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .who-grid { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ══════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/>
+            <path d="M9 21V12h6v9" fill="var(--navy)"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <strong>BRIYA</strong>
+          <small>Exterior Cleaning</small>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <!-- Text -->
+        <div>
+          <h1 class="hero-heading">EXTERIOR CLEANING YOU CAN TRUST</h1>
+          <p class="hero-sub">Driveways, house washing, roofs, gutters, solar panels and windows across the Gold Coast and surrounding areas.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+            <a href="#services" class="btn btn-outline">See What We Clean</a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="hero-img">
+          <div class="img-placeholder" style="min-height:380px;">
+            <span>Hero Image</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust bar -->
+      <div class="trust-bar">
+        <div class="trust-item"><span class="trust-dot"></span> Owner Operated</div>
+        <div class="trust-item"><span class="trust-dot"></span> Fully Insured</div>
+        <div class="trust-item"><span class="trust-dot"></span> Fast Quotes</div>
+        <div class="trust-item"><span class="trust-dot"></span> Gold Coast &amp; Surrounding Areas</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       BUILD-UP SECTION
+  ══════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container buildup-inner">
+      <div class="buildup-text">
+        <h2>Starting to notice build-up like this?</h2>
+        <p>Exterior surfaces can collect grime, mould and staining faster than most people realise. A deep, careful clean can make a visible difference.</p>
+      </div>
+      <div class="buildup-img">
+        <div class="img-placeholder" style="min-height:300px;">
+          <span>Before / After Image</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       WHY IT'S WORTH DOING
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container centered">
+      <p class="tag">Benefits</p>
+      <h2 class="section-title">Why It's Worth Doing</h2>
+      <p class="section-sub">Exterior cleaning is not just about appearance. It can help reduce slippery build-up, clear away debris, improve presentation, and stop surfaces from looking more neglected over time.</p>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/></svg>
+          </div>
+          <p>Improve street appeal</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <p>Reduce grime and organic build-up</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p>Help prevent slippery surfaces</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <p>Keep the property looking better maintained</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
+          <p>Make a visible difference without major work</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       WHAT WE CLEAN (SERVICES)
+  ══════════════════════════════════════════════ -->
+  <section class="section" id="services">
+    <div class="container centered">
+      <p class="tag">Services</p>
+      <h2 class="section-title">What we Clean</h2>
+      <p class="section-sub">Exterior cleaning services designed to improve presentation, reduce build-up and help your property look better cared for.</p>
+
+      <div class="services-grid">
+
+        <!-- Driveway -->
+        <div class="service-card">
+          <div class="img-placeholder"><span>Driveway Cleaning</span></div>
+          <div class="service-body">
+            <h3>Driveway Cleaning</h3>
+            <p>For built-up grime, staining and slippery sections before they turn into bigger issues.</p>
+            <p class="service-meta"><strong>Why it matters:</strong> Helps improve street appeal and reduces injury risk in high-use areas.</p>
+            <p class="service-meta"><strong>Common issues:</strong> dark staining, slippery paths, tyre marks</p>
+            <a href="#contact" class="btn btn-outline">Get a Quote</a>
+          </div>
+        </div>
+
+        <!-- House Washing -->
+        <div class="service-card">
+          <div class="img-placeholder"><span>House Washing</span></div>
+          <div class="service-body">
+            <h3>House Washing</h3>
+            <p>A gentler solution for walls, caulking and painted surfaces.</p>
+            <p class="service-meta"><strong>Why it matters:</strong> Removes dust, mould and grime that can make a home look tired over time.</p>
+            <p class="service-meta"><strong>Common issues:</strong> cobwebs, dust, mould, timber staining</p>
+            <a href="#contact" class="btn btn-outline">Get a Quote</a>
+          </div>
+        </div>
+
+        <!-- Roof Cleaning -->
+        <div class="service-card">
+          <div class="img-placeholder"><span>Roof Cleaning</span></div>
+          <div class="service-body">
+            <h3>Roof Cleaning</h3>
+            <p>Remove built-up grime, moss and weather staining from one of the most visible parts of the property.</p>
+            <p class="service-meta"><strong>Why it matters:</strong> A cleaner roof can lift the overall appearance of the whole home.</p>
+            <p class="service-meta"><strong>Common issues:</strong> dark staining, moss, lichen, patio discolouration</p>
+            <a href="#contact" class="btn btn-outline">Get a Quote</a>
+          </div>
+        </div>
+
+        <!-- Gutter Cleaning -->
+        <div class="service-card">
+          <div class="img-placeholder"><span>Gutter Cleaning</span></div>
+          <div class="service-body">
+            <h3>Gutter Cleaning</h3>
+            <p>Clear away debris and blocked sections before they lead to bigger issues.</p>
+            <p class="service-meta"><strong>Why it matters:</strong> Helps water flow properly and keeps your home from developing water damage.</p>
+            <p class="service-meta"><strong>Common issues:</strong> dark staining, leaf build-up, blocked downpipes</p>
+            <a href="#contact" class="btn btn-outline">Get a Quote</a>
+          </div>
+        </div>
+
+        <!-- Window Cleaning -->
+        <div class="service-card">
+          <div class="img-placeholder"><span>Window Cleaning</span></div>
+          <div class="service-body">
+            <h3>Window Cleaning</h3>
+            <p>Clean windows help the home feel fresher and better maintained.</p>
+            <p class="service-meta"><strong>Why it matters:</strong> Clean windows help the home feel open, airy and better maintained.</p>
+            <p class="service-meta"><strong>Common issues:</strong> water spots, dust, clouding, dirty panels</p>
+            <a href="#contact" class="btn btn-outline">Get a Quote</a>
+          </div>
+        </div>
+
+        <!-- Solar Panel Cleaning -->
+        <div class="service-card">
+          <div class="img-placeholder"><span>Solar Panel Cleaning</span></div>
+          <div class="service-body">
+            <h3>Solar Panel Cleaning</h3>
+            <p>A careful service to keep exposed panels cleaner and better maintained.</p>
+            <p class="service-meta"><strong>Why it matters:</strong> Dust and residue can build up over time on exposed solar panels.</p>
+            <p class="service-meta"><strong>Common issues:</strong> dust, grime, residue, dirty looking panels</p>
+            <a href="#contact" class="btn btn-outline">Get a Quote</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       WHO WE WORK WITH
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt">
+    <div class="container centered">
+      <p class="tag">Clients</p>
+      <h2 class="section-title">Who We Work With</h2>
+      <p class="section-sub">We provide exterior cleaning for homes, strata properties and selected commercial work across the Gold Coast and surrounding areas.</p>
+
+      <div class="who-grid">
+        <div class="who-item">
+          <div class="who-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><rect x="9" y="12" width="6" height="9"/></svg>
+          </div>
+          <p>Homes</p>
+        </div>
+        <div class="who-item">
+          <div class="who-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="1"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          </div>
+          <p>Strata / Body Corporate</p>
+        </div>
+        <div class="who-item">
+          <div class="who-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 10v11M12 10v11M16 10v11"/></svg>
+          </div>
+          <p>Selected Commercial Properties</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       AREAS WE SERVICE
+  ══════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="areas-inner">
+        <div class="areas-pin">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="areas-text">
+          <h2>Areas We Service</h2>
+          <p>We service the <strong>Gold Coast and surrounding areas</strong>. If you're unsure whether we cover your suburb, just send through your details and we'll let you know.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="container cta-banner-inner">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p><strong>A professional clean can make a visible difference.</strong> If the outside of your property is starting to look tired, built up or harder to keep on top, get in touch for a fast quote.</p>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT / FORM
+  ══════════════════════════════════════════════ -->
+  <section class="section section-alt" id="contact">
+    <div class="container contact-inner">
+      <!-- Left info -->
+      <div class="contact-info">
+        <h2>Start Your Home's Transformation</h2>
+
+        <div class="contact-detail">
+          <label>Send Us an Email</label>
+          <p><a href="mailto:info@briya.com.au">info@briya.com.au</a></p>
+        </div>
+        <div class="contact-detail">
+          <label>Our Office</label>
+          <p><a href="tel:0415654436">0415 654 436</a></p>
+        </div>
+        <div class="contact-detail">
+          <label>Service Coverage</label>
+          <p>Gold Coast Area</p>
+          <small>Providing pressure washing for residential properties across the Gold Coast area.</small>
+        </div>
+        <div class="contact-detail">
+          <label>Please Note</label>
+          <small>Most exterior cleaning services require access to an outdoor water tap on the day of service.</small>
+        </div>
+      </div>
+
+      <!-- Right form -->
+      <div class="form-card">
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="John" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="04xx xxx xxx" />
+          </div>
+          <div class="form-group">
+            <label>Suburb</label>
+            <input type="text" placeholder="e.g. Burleigh Heads" />
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Driveway Cleaning</option>
+              <option>House Washing</option>
+              <option>Roof Cleaning</option>
+              <option>Gutter Cleaning</option>
+              <option>Window Cleaning</option>
+              <option>Solar Panel Cleaning</option>
+              <option>Multiple / Unsure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Additional Details</label>
+            <textarea placeholder="Tell us a bit about what you need..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;text-align:center;">Get a Free Quote</button>
+          <p class="form-note">We'll get back to you with a fast, no-obligation quote.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       MAP PLACEHOLDER
+  ══════════════════════════════════════════════ -->
+  <div class="map-placeholder">
+    <span>Map / Area Coverage Image</span>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════════ -->
+  <section class="section" id="faq">
+    <div class="container centered">
+      <p class="tag">Questions</p>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item open">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Do you offer free quotes?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">Yes. We provide fast, no-obligation quotes based on your site details and photos where possible.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Do I need to be home?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">Not always. In many cases, we can quote or carry out exterior work without you needing to be home, depending on access.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Do you do roof and gutter cleaning together?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">Yes, when suitable. They are often quoted together as part of a full exterior clean.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>What areas do you service?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">We service the Gold Coast and surrounding areas. If you're unsure, just send through your suburb.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Do you clean delicate surfaces?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">We use surface-appropriate cleaning methods depending on the material and condition.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Do you only work on homes?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">No. We also take on strata and selected commercial exterior cleaning work.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Are you insured?</span>
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <div class="faq-a">Yes. BRIYA is fully insured.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>BRIYA</strong>
+              <small>Exterior Cleaning</small>
+            </div>
+          </div>
+          <p class="footer-tagline">Exterior Cleaning for Gold Coast estates, strata and selected commercial properties.</p>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p><a href="mailto:info@briya.com.au">info@briya.com.au</a></p>
+          <p><a href="tel:0415654436">0415 654 436</a></p>
+          <p>Gold Coast, QLD</p>
+        </div>
+      </div>
+
+      <p class="footer-bottom">© 2026 BRIYA EXTERIOR CLEANING. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>
