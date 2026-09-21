@@ -70,6 +70,47 @@
     .footer{background:#07152e;padding:28px 0;}.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}.footer img{height:44px;width:auto;}.footer-links{display:flex;gap:24px;}.footer-links a{font-size:13px;color:rgba(255,255,255,.5);}.footer-links a:hover{color:#fff;}.footer-copy{font-size:12px;color:rgba(255,255,255,.35);}
     @media(max-width:900px){.hero-inner,.detail-inner{grid-template-columns:1fr;}.why-grid,.trust-grid{grid-template-columns:1fr 1fr;}.benefits-grid{flex-direction:column;}.benefit{border-right:none;border-bottom:1px solid var(--border);padding:16px 0;}.benefit:last-child{border-bottom:none;}}
     @media(max-width:600px){.hero h1{font-size:32px;}.why-grid{grid-template-columns:1fr;}}
+
+    /* ─── FLOATING PHONE ─── */
+    .float-phone {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1a5fa8, #2272cc);
+      color: #fff;
+      border-radius: 50px;
+      padding: 14px 22px 14px 18px;
+      box-shadow: 0 8px 32px rgba(34,114,204,0.45);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-phone:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(34,114,204,0.55); text-decoration: none; }
+    .float-phone svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .float-phone span { white-space: nowrap; }
+    .float-phone-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50px;
+      border: 2px solid rgba(34,114,204,0.5);
+      animation: phoneRing 2.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes phoneRing {
+      0%, 100% { transform: scale(1); opacity: .6; }
+      50% { transform: scale(1.06); opacity: 0; }
+    }
+    @media (max-width: 600px) {
+      .float-phone span { display: none; }
+      .float-phone { padding: 15px; border-radius: 50%; }
+      .float-phone-ring { border-radius: 50%; }
+    }
   </style>
 </head>
 <body>
@@ -89,6 +130,24 @@
   <section class="section section-alt"><div class="container" style="text-align:center;"><p class="section-tag">Questions</p><h2 class="section-title">Gutter Cleaning FAQs</h2><div class="faq-list"><div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span>How often should gutters be cleaned?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">At least once a year is recommended, though homes near trees may need it every 6 months.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can you do gutters and roof together?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes. We often combine roof and gutter cleaning as part of a full exterior package at a better rate.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do I need to be home?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Not always, as long as we have roof/gutter access and an outdoor tap.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you flush the downpipes?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes, we flush downpipes as part of every gutter clean to make sure water flows freely.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you offer free quotes?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes, always. Fill in the form above and we'll get back to you quickly.</div></div></div></div></section>
   <div class="cta-strip"><div class="container"><h2>Ready to Clear Your Gutters?</h2><p>Get a fast, free quote today — no obligation, no hassle.</p><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn-cta"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Get My Free Quote</a></div></div>
   <footer class="footer"><div class="container footer-inner"><a href="index.html"><img src="Logo Briya Exterior Cleaning.jpg" alt="Briya" /></a><div class="footer-links"><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#contact">Contact</a></div><p class="footer-copy">© 2026 Briya Exterior Cleaning</p></div></footer>
-  <script>function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}</script>
+  <script>
+    function trackCall(source) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'phone_call_click', {
+          'event_category': 'contact',
+          'event_label': source,
+          'phone_number': '0415908436'
+        });
+      }
+    }function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}</script>
+
+  <!-- ═══ FLOATING PHONE BUTTON ═══ -->
+  <a href="tel:0415908436" class="float-phone" id="floatPhone" onclick="trackCall('float_button')" aria-label="Call Briya Exterior Cleaning">
+    <div class="float-phone-ring"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 0.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.08 6.08l1.71-1.71a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    <span>0415 908 436</span>
+  </a>
 </body>
 </html>

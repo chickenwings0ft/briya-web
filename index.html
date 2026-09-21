@@ -826,6 +826,47 @@
       .who-grid { gap: 60px; }
       .section-title { font-size: 32px; }
     }
+
+    /* ─── FLOATING PHONE ─── */
+    .float-phone {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1a5fa8, #2272cc);
+      color: #fff;
+      border-radius: 50px;
+      padding: 14px 22px 14px 18px;
+      box-shadow: 0 8px 32px rgba(34,114,204,0.45);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .float-phone:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(34,114,204,0.55); text-decoration: none; }
+    .float-phone svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .float-phone span { white-space: nowrap; }
+    .float-phone-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50px;
+      border: 2px solid rgba(34,114,204,0.5);
+      animation: phoneRing 2.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes phoneRing {
+      0%, 100% { transform: scale(1); opacity: .6; }
+      50% { transform: scale(1.06); opacity: 0; }
+    }
+    @media (max-width: 600px) {
+      .float-phone span { display: none; }
+      .float-phone { padding: 15px; border-radius: 50%; }
+      .float-phone-ring { border-radius: 50%; }
+    }
   </style>
 </head>
 <body>
@@ -1410,6 +1451,15 @@
 
 
   <script>
+    function trackCall(source) {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'phone_call_click', {
+          'event_category': 'contact',
+          'event_label': source,
+          'phone_number': '0415908436'
+        });
+      }
+    }
     function toggleFaq(el) {
       const item = el.closest('.faq-item');
       const isOpen = item.classList.contains('open');
@@ -1467,5 +1517,14 @@
     }
   </script>
 
+
+  <!-- ═══ FLOATING PHONE BUTTON ═══ -->
+  <a href="tel:0415908436" class="float-phone" id="floatPhone" onclick="trackCall('float_button')" aria-label="Call Briya Exterior Cleaning">
+    <div class="float-phone-ring"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 0.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.08 6.08l1.71-1.71a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+    <span>0415 908 436</span>
+  </a>
 </body>
 </html>
