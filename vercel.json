@@ -1,6 +1,14 @@
 {
   "name": "briya-web",
   "rewrites": [
-    { "source": "/thank-you", "destination": "/thank-you.html" }
+    { "source": "/driveway-cleaning",    "destination": "/driveway-cleaning.html" },
+    { "source": "/house-washing",        "destination": "/house-washing.html" },
+    { "source": "/roof-cleaning",        "destination": "/roof-cleaning.html" },
+    { "source": "/gutter-cleaning",      "destination": "/gutter-cleaning.html" },
+    { "source": "/window-cleaning",      "destination": "/window-cleaning.html" },
+    { "source": "/solar-panel-cleaning", "destination": "/solar-panel-cleaning.html" },
+    { "source": "/privacy-policy",       "destination": "/privacy-policy.html" },
+    { "source": "/terms",                "destination": "/terms.html" },
+    { "source": "/thank-you",            "destination": "/thank-you.html" }
   ]
 }
