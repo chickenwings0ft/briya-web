@@ -1,3 +1,6 @@
 {
-  "name": "briya-web"
+  "name": "briya-web",
+  "rewrites": [
+    { "source": "/thank-you", "destination": "/thank-you.html" }
+  ]
 }
