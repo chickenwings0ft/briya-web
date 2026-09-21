@@ -1520,9 +1520,7 @@
         const data = await res.json();
 
         if (res.ok) {
-          msg.style.cssText = 'display:block;padding:12px 16px;border-radius:8px;font-size:14px;font-weight:600;margin-bottom:14px;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;';
-          msg.textContent = '✓ Thanks! We\'ll be in touch shortly with your quote.';
-          document.getElementById('contactForm').reset();
+          window.location.href = '/thank-you';
         } else {
           throw new Error(data.error || 'Something went wrong');
         }
