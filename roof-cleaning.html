@@ -8,6 +8,14 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-TCKXCDRB');</script>
   <!-- End Google Tag Manager -->
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQ9HN8H6NT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EQ9HN8H6NT');
+  </script>
   <meta charset="UTF-8" /><link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roof Cleaning Gold Coast | Briya Exterior Cleaning</title>
@@ -146,13 +154,13 @@
   <footer class="footer"><div class="container footer-inner"><a href="index.html"><img src="Logo Briya Exterior Cleaning.jpg" alt="Briya" /></a><div class="footer-links"><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#contact">Contact</a></div><p class="footer-copy">© 2026 Briya Exterior Cleaning</p></div></footer>
   <script>
     function trackCall(source) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        'event': 'phone_call_click',
-        'event_category': 'contact',
-        'event_label': source,
-        'phone_number': '0415908436'
-      });
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'phone_call_click', {
+          'event_category': 'contact',
+          'event_label': source,
+          'phone_number': '0415908436'
+        });
+      }
     }function toggleFaq(el){const item=el.closest('.faq-item');const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}</script>
 
   <!-- ═══ FLOATING PHONE BUTTON ═══ -->
