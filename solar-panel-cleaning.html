@@ -141,8 +141,8 @@
     .dropdown-menu a { display: block; padding: 10px 18px; font-size: 13px; font-weight: 500; color: #142740 !important; white-space: nowrap; transition: background .15s; }
     .dropdown-menu a:hover { background: #f4f6f9; color: #1a5fa8 !important; }
     .nav-right { display: flex; align-items: center; gap: 10px; }
-    .nav-cta { background: #2272cc; color: #fff !important; font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; transition: background .15s; text-decoration: none; }
-    .nav-cta:hover { background: #1a5fa8; }
+    .nav-cta { background: #ffffff; color: #0b2043 !important; font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; transition: opacity .15s; text-decoration: none; display: inline-block; }
+    .nav-cta:hover { opacity: .88; }
     .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
     .mobile-menu { display: none; flex-direction: column; background: #0f1f3a; padding: 12px 0 16px; }
     .mobile-menu a { color: rgba(255,255,255,.85); font-size: 15px; font-weight: 500; padding: 11px 24px; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.06); }
@@ -184,7 +184,7 @@
         <li><a href="/#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="/#contact" class="nav-cta">Get a Free Quote</a>
+        <a href="#quote" class="nav-cta">Get a Free Quote</a>
         <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -199,10 +199,10 @@
       <a href="/gutter-cleaning.html" style="padding-left:36px;font-size:13px;">→ Gutter Cleaning</a>
       <a href="/window-cleaning.html" style="padding-left:36px;font-size:13px;">→ Window Cleaning</a>
       <a href="/solar-panel-cleaning.html" style="padding-left:36px;font-size:13px;">→ Solar Panel Cleaning</a>
-      <a href="/#contact">Get a Free Quote</a>
+      <a href="#quote">Get a Free Quote</a>
     </div>
   </nav>
-  <section class="hero"><div class="container hero-inner"><div>
+  <section class="hero" id="quote"><div class="container hero-inner"><div>
     <div class="hero-label"><span></span> Gold Coast · Byron Bay · Brisbane</div>
     <h1>Professional <em>Solar Panel Cleaning</em> on the Gold Coast</h1>
     <p class="hero-sub">Dust, grime and bird residue build up on panels and reduce their output over time. Keep them clean and working at their best. Free quote.</p>
@@ -268,5 +268,41 @@
     </svg>
     <span>0415 908 436</span>
   </a>
+  <script>
+    function toggleMobileNav() { document.getElementById('mobileMenu').classList.toggle('open'); }
+    function closeMobileNav() { document.getElementById('mobileMenu').classList.remove('open'); }
+    async function submitForm(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      const pref = (document.querySelector('input[name="contactPref"]:checked') || {}).value || 'Email';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName:   document.getElementById('svcName').value.split(' ')[0] || document.getElementById('svcName').value,
+            lastName:    document.getElementById('svcName').value.split(' ').slice(1).join(' ') || '',
+            email:       document.getElementById('svcEmail').value,
+            phone:       document.getElementById('svcPhone').value,
+            suburb:      document.getElementById('svcSuburb').value,
+            message:     document.getElementById('svcDetails').value,
+            services:    [document.getElementById('svcService').value],
+            contactPref: pref,
+          }),
+        });
+        if (res.ok) {
+          window.location.href = '/thank-you';
+        } else {
+          throw new Error('Error');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Request My Free Quote';
+        alert('Sorry, something went wrong. Please call us on 0415 908 436.');
+      }
+    }
+  </script>
 </body>
 </html>
