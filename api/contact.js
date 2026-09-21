@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { firstName, lastName, email, phone, suburb, services, message } = req.body;
+  const { firstName, lastName, email, phone, suburb, services, message, contactPref } = req.body;
 
   if (!firstName || !email || !phone) {
     return res.status(400).json({ error: 'Please fill in all required fields.' });
@@ -28,6 +28,7 @@ export default async function handler(req, res) {
         <tr><td style="padding:8px 0;color:#5a6272;">Suburb</td><td style="padding:8px 0;font-weight:600;color:#1c1c1c;">${suburb || '—'}</td></tr>
         <tr><td style="padding:8px 0;color:#5a6272;vertical-align:top;">Services</td><td style="padding:8px 0;font-weight:600;color:#1c1c1c;">${servicesText}</td></tr>
         <tr><td style="padding:8px 0;color:#5a6272;vertical-align:top;">Message</td><td style="padding:8px 0;color:#1c1c1c;">${message || '—'}</td></tr>
+        <tr><td style="padding:8px 0;color:#5a6272;">Contact via</td><td style="padding:8px 0;font-weight:700;color:#1a5fa8;">${contactPref || 'Not specified'}</td></tr>
       </table>
       <p style="margin-top:24px;font-size:12px;color:#aaa;">Sent from briya.com.au</p>
     </div>
@@ -77,7 +78,7 @@ export default async function handler(req, res) {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          from: 'Briya Website <noreply@briya.com.au>',
+          from: 'Briya - Exterior Cleaning <noreply@briya.com.au>',
           to: ['info@briya.com.au', 'jonathan.rodero.martinez@gmail.com', 'lpalaciosalvero@gmail.com'],
           reply_to: email,
           subject: `New quote request – ${firstName} ${lastName} (${servicesText})`,
