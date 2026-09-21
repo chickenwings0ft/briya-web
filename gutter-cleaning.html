@@ -71,8 +71,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root{--navy:#0b2043;--blue:#2272cc;--accent:#22d3ee;--text:#1c1c1c;--muted:#5a6272;--border:#dde2eb;--bg:#f4f6f9;--white:#ffffff;--radius:10px;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);}a{text-decoration:none;color:inherit;}.container{max-width:1100px;margin:0 auto;padding:0 24px;}
-    .nav{background:var(--navy);padding:0 24px;}.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px;}.nav img{height:52px;width:auto;}.nav-phone{display:flex;align-items:center;gap:8px;color:#fff;font-size:15px;font-weight:700;}.nav-phone svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}body{font-family:'Inter',sans-serif;color:var(--text);background:var(--white);}a{text-decoration:none;color:inherit;}.container{max-width:1100px;margin:0 auto;padding:0 24px;}.nav-phone svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;}
     .hero{background:linear-gradient(135deg,#0b2043 0%,#142d55 100%);padding:56px 0;}.hero-inner{display:grid;grid-template-columns:1fr 420px;gap:48px;align-items:start;}.hero-label{display:inline-flex;align-items:center;gap:7px;background:rgba(34,211,238,0.15);border:1px solid rgba(34,211,238,0.3);color:var(--accent);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;padding:5px 12px;border-radius:100px;margin-bottom:18px;}.hero-label span{width:6px;height:6px;background:var(--accent);border-radius:50%;}.hero h1{font-size:44px;font-weight:800;color:#fff;line-height:1.1;margin-bottom:16px;}.hero h1 em{color:#38bdf8;font-style:normal;}.hero-sub{font-size:16px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:28px;max-width:500px;}.hero-pills{display:flex;gap:10px;flex-wrap:wrap;}.hero-pill{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);font-size:13px;font-weight:500;padding:7px 13px;border-radius:100px;}.hero-pill svg{width:13px;height:13px;stroke:var(--accent);fill:none;stroke-width:2.5;}
     .form-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 24px 64px rgba(0,0,0,.35);}.form-card h2{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:4px;}.form-card p{font-size:13px;color:var(--muted);margin-bottom:20px;}.form-group{margin-bottom:14px;}.form-group label{font-size:12px;font-weight:600;color:var(--navy);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em;}.form-group input,.form-group textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;}.form-group input:focus,.form-group textarea:focus{border-color:var(--blue);}.form-group textarea{min-height:80px;resize:vertical;}.btn-submit{width:100%;background:var(--blue);color:#fff;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,transform .2s;}.btn-submit:hover{background:#1a5fa8;transform:translateY(-1px);}.btn-submit svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.5;}.form-note{font-size:11px;color:var(--muted);text-align:center;margin-top:10px;}
     .benefits{background:var(--bg);padding:32px 0;border-bottom:1px solid var(--border);}.benefits-grid{display:flex;gap:0;flex-wrap:wrap;}.benefit{flex:1;min-width:200px;display:flex;align-items:center;gap:12px;padding:0 32px;border-right:1px solid var(--border);}.benefit:last-child{border-right:none;}.benefit-icon{width:44px;height:44px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.benefit-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:2;}.benefit-text strong{display:block;font-size:14px;font-weight:700;color:var(--navy);}.benefit-text span{font-size:12px;color:var(--muted);}
@@ -126,6 +125,30 @@
       .float-phone { padding: 15px; border-radius: 50%; }
       .float-phone-ring { border-radius: 50%; }
     }
+  .hero-img{width:100%;border-radius:14px;object-fit:cover;height:240px;margin-top:24px;display:block;}@media(max-width:900px){.hero-img{height:180px;}}
+    .nav { background: var(--navy); padding: 0 24px; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .nav img { height: 52px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,.75); font-size: 14px; font-weight: 500; text-decoration: none; transition: color .15s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 5px; cursor: pointer; }
+    .nav-dropdown > a svg { width: 12px; height: 12px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 2.5; transition: transform .2s; }
+    .nav-dropdown:hover > a svg { transform: rotate(180deg); stroke: #fff; }
+    .dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(-4px); background: #fff; border-radius: 10px; box-shadow: 0 16px 48px rgba(0,0,0,.18); min-width: 210px; padding: 14px 0 6px; opacity: 0; pointer-events: none; transition: opacity .18s, transform .18s; z-index: 200; }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+    .dropdown-menu a { display: block; padding: 10px 18px; font-size: 13px; font-weight: 500; color: #142740 !important; white-space: nowrap; transition: background .15s; }
+    .dropdown-menu a:hover { background: #f4f6f9; color: #1a5fa8 !important; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .nav-cta { background: #2272cc; color: #fff !important; font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 8px; transition: background .15s; text-decoration: none; }
+    .nav-cta:hover { background: #1a5fa8; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .mobile-menu { display: none; flex-direction: column; background: #0f1f3a; padding: 12px 0 16px; }
+    .mobile-menu a { color: rgba(255,255,255,.85); font-size: 15px; font-weight: 500; padding: 11px 24px; display: block; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+    @media(max-width:900px) { .nav-links { display: none; } .nav-hamburger { display: block; } }
   </style>
 </head>
 <body>
@@ -133,12 +156,49 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TCKXCDRB"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <nav class="nav"><div class="nav-inner"><a href="index.html"><img src="Logo Briya Exterior Cleaning.jpg" alt="Briya" /></a><a href="tel:0415908436" class="nav-phone"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.22 16z"/></svg>0415 908 436</a></div></nav>
+    <nav class="nav">
+    <div class="nav-inner">
+      <a href="/"><img src="Logo Briya Exterior Cleaning.jpg" alt="Briya Exterior Cleaning" /></a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li class="nav-dropdown">
+          <a href="/#services">Services <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="dropdown-menu">
+            <a href="/driveway-cleaning.html">Driveway Cleaning</a>
+            <a href="/house-washing.html">House Washing</a>
+            <a href="/roof-cleaning.html">Roof Cleaning</a>
+            <a href="/gutter-cleaning.html">Gutter Cleaning</a>
+            <a href="/window-cleaning.html">Window Cleaning</a>
+            <a href="/solar-panel-cleaning.html">Solar Panel Cleaning</a>
+          </div>
+        </li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="/#contact" class="nav-cta">Get a Free Quote</a>
+        <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/">Home</a>
+      <a href="/#services" style="font-weight:600;color:#fff;">Services</a>
+      <a href="/driveway-cleaning.html" style="padding-left:36px;font-size:13px;">→ Driveway Cleaning</a>
+      <a href="/house-washing.html" style="padding-left:36px;font-size:13px;">→ House Washing</a>
+      <a href="/roof-cleaning.html" style="padding-left:36px;font-size:13px;">→ Roof Cleaning</a>
+      <a href="/gutter-cleaning.html" style="padding-left:36px;font-size:13px;">→ Gutter Cleaning</a>
+      <a href="/window-cleaning.html" style="padding-left:36px;font-size:13px;">→ Window Cleaning</a>
+      <a href="/solar-panel-cleaning.html" style="padding-left:36px;font-size:13px;">→ Solar Panel Cleaning</a>
+      <a href="/#contact">Get a Free Quote</a>
+    </div>
+  </nav>
   <section class="hero"><div class="container hero-inner"><div>
     <div class="hero-label"><span></span> Gold Coast · Byron Bay · Brisbane</div>
     <h1>Professional <em>Gutter Cleaning</em> on the Gold Coast</h1>
     <p class="hero-sub">Clear leaves, debris and blockages from your gutters before they cause water damage to your home. Fast, thorough and fully insured. Free quote.</p>
     <div class="hero-pills"><div class="hero-pill"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Fully Insured</div><div class="hero-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Free Quote</div><div class="hero-pill"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Fast Response</div></div>
+      <img src="gutter cleaning.avif" alt="Gutter cleaning Gold Coast" class="hero-img" />
   </div>
   <div class="form-card"><h2>Get a Free Quote</h2><p>We'll get back to you fast — no obligation.</p><form><div class="form-group"><label>Name</label><input type="text" placeholder="Your name" /></div><div class="form-group"><label>Phone</label><input type="tel" placeholder="04xx xxx xxx" /></div><div class="form-group"><label>Suburb</label><input type="text" placeholder="e.g. Burleigh Heads" /></div><div class="form-group"><label>Details</label><textarea placeholder="Number of storeys, type of gutters, how long since last clean..."></textarea></div><button type="submit" class="btn-submit"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Request My Free Quote</button><p class="form-note">No spam. We'll only contact you about your quote.</p></form></div>
   </div></section>
