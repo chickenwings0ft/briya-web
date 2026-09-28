@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 – default denied until user accepts -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'wait_for_update': 1500
+    });
+    (function(){
+      if (localStorage.getItem('briya_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+    })();
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -244,5 +266,40 @@
     <span>0415 908 436</span>
   </a>
 
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#0b2043;color:#fff;padding:16px 24px;box-shadow:0 -4px 20px rgba(0,0,0,0.25);font-family:sans-serif;">
+    <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.85);line-height:1.5;flex:1;min-width:220px;">
+        We use cookies to analyse site traffic and improve your experience. By clicking <strong>Accept All</strong> you consent to our use of analytics and advertising cookies. You can manage your preferences at any time. See our <a href="/privacy-policy" style="color:#7fb8f5;text-decoration:underline;">Privacy Policy</a>.
+      </p>
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <button onclick="cookieDecline()" style="background:transparent;border:1.5px solid rgba(255,255,255,0.4);color:#fff;padding:9px 18px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;">Decline</button>
+        <button onclick="cookieAccept()" style="background:#1a5fa8;border:none;color:#fff;padding:9px 20px;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;">Accept All</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var c = localStorage.getItem('briya_cookie_consent');
+      if (!c) { var b = document.getElementById('cookieBanner'); if (b) b.style.display = 'block'; }
+    })();
+    function cookieAccept() {
+      localStorage.setItem('briya_cookie_consent', 'accepted');
+      var b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+    }
+    function cookieDecline() {
+      localStorage.setItem('briya_cookie_consent', 'declined');
+      var b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
+    }
+  </script>
 </body>
 </html>
