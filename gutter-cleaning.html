@@ -247,6 +247,39 @@
     .cta-banner-btn:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,0,0,.3); }
     .cta-banner-btn svg { width:16px; height:16px; stroke:#091d38; fill:none; stroke-width:2.5; }
     .reviews-section { background: #ffffff; }
+  
+    /* ══ Quote Form — refined layout ═════════════════════════════════════════ */
+    .form-card { background: #fff; border-radius: 20px; padding: 36px 32px; box-shadow: 0 30px 70px rgba(0,0,0,.4); }
+    .form-card h2 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 5px; letter-spacing: -.01em; }
+    .form-card p { font-size: 13.5px; color: var(--muted); margin-bottom: 26px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { font-size: 11.5px; font-weight: 700; color: var(--navy); display: block; margin-bottom: 7px; text-transform: uppercase; letter-spacing: .05em; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 15px; border: 1.5px solid var(--border); border-radius: 10px;
+      font-size: 14.5px; font-family: inherit; color: var(--text); background: #fafbfc; outline: none;
+      transition: border-color .15s, background .15s, box-shadow .15s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--blue); background: #fff; box-shadow: 0 0 0 4px rgba(34,114,204,.1); }
+    .form-group textarea { min-height: 84px; resize: vertical; }
+    .photo-upload { margin-bottom: 18px; }
+    .photo-upload label { margin-bottom: 9px; }
+    .contact-pref { margin-bottom: 20px; }
+    .contact-pref label { font-size: 11.5px; font-weight: 700; margin-bottom: 9px; letter-spacing: .05em; }
+    .pref-options { gap: 10px; }
+    .pref-opt label { padding: 11px; border-radius: 10px; background: #fafbfc; transition: border-color .15s, background .15s, color .15s, box-shadow .15s; }
+    .pref-opt input[type=radio]:checked + label { box-shadow: 0 0 0 3px rgba(34,114,204,.1); }
+    .btn-submit {
+      width: 100%; background: linear-gradient(135deg,#1a5fa8,#2272cc); color: #fff; border: none;
+      padding: 16px; border-radius: 12px; font-size: 15.5px; font-weight: 700; letter-spacing: .01em;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 6px 22px rgba(34,114,204,.35); transition: transform .2s, box-shadow .2s; margin-top: 4px; }
+    .btn-submit:hover { background: linear-gradient(135deg,#1a5fa8,#2272cc); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(34,114,204,.45); }
+    .form-note { font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 16px; }
+    @media (max-width: 520px) {
+      .form-card { padding: 28px 22px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+    }
   </style>
 </head>
 <body>
@@ -300,10 +333,14 @@
   </div>
   <div class="form-card"><h2>Get a Free Quote</h2><p>We'll get back to you fast — no obligation.</p>        <form onsubmit="submitForm(event)">
           <input type="hidden" id="svcService" value="Gutter Cleaning" />
-          <div class="form-group"><label>Name</label><input id="svcName" type="text" placeholder="Your name" required /></div>
-          <div class="form-group"><label>Email</label><input id="svcEmail" type="email" placeholder="you@email.com" required /></div>
-          <div class="form-group"><label>Phone</label><input id="svcPhone" type="tel" placeholder="04xx xxx xxx" required /></div>
-          <div class="form-group"><label>Suburb</label><input id="svcSuburb" type="text" placeholder="e.g. Burleigh Heads" /></div>
+          <div class="form-row">
+            <div class="form-group"><label>Name</label><input id="svcName" type="text" placeholder="Your name" required /></div>
+            <div class="form-group"><label>Email</label><input id="svcEmail" type="email" placeholder="you@email.com" required /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Phone</label><input id="svcPhone" type="tel" placeholder="04xx xxx xxx" required /></div>
+            <div class="form-group"><label>Suburb</label><input id="svcSuburb" type="text" placeholder="e.g. Burleigh Heads" /></div>
+          </div>
           <div class="form-group"><label>Details</label><textarea id="svcDetails" placeholder="Number of storeys, type of gutters, how long since last clean..."></textarea></div>
                               <div class="photo-upload">
             <label>Photos <span style="font-weight:400;text-transform:none;color:#718096;">(optional, max 5)</span></label>
