@@ -233,7 +233,7 @@
           <div class="form-group"><label>Suburb</label><input id="svcSuburb" type="text" placeholder="e.g. Burleigh Heads" /></div>
           <div class="form-group"><label>Details</label><textarea id="svcDetails" placeholder="Roof type, level of moss or staining, approximate size..."></textarea></div>
                               <div class="photo-upload">
-            <label>Photos <span style="font-weight:400;text-transform:none;color:#718096;">(optional, max 3)</span></label>
+            <label>Photos <span style="font-weight:400;text-transform:none;color:#718096;">(optional, max 5)</span></label>
             <div class="photo-drop" onclick="document.getElementById('photoInput').click()">
               <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotos(this)" />
               <div class="photo-drop-icon">📷</div>
@@ -299,9 +299,9 @@
     
     const _selectedPhotos = [];
     function handlePhotos(input) {
-      const files = Array.from(input.files).slice(0, 3 - _selectedPhotos.length);
+      const files = Array.from(input.files).slice(0, 5 - _selectedPhotos.length);
       files.forEach(file => {
-        if (_selectedPhotos.length >= 3) return;
+        if (_selectedPhotos.length >= 5) return;
         const reader = new FileReader();
         reader.onload = ev => {
           const img = new Image();
