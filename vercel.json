@@ -76,6 +76,26 @@
     {
       "source": "/driveway-cleaning/coomera",
       "destination": "/driveway-cleaning-coomera.html"
+    },
+    {
+      "source": "/driveway-cleaning/miami",
+      "destination": "/driveway-cleaning-miami.html"
+    },
+    {
+      "source": "/driveway-cleaning/ashmore",
+      "destination": "/driveway-cleaning-ashmore.html"
+    },
+    {
+      "source": "/driveway-cleaning/labrador",
+      "destination": "/driveway-cleaning-labrador.html"
+    },
+    {
+      "source": "/driveway-cleaning/helensvale",
+      "destination": "/driveway-cleaning-helensvale.html"
+    },
+    {
+      "source": "/driveway-cleaning/pacific-pines",
+      "destination": "/driveway-cleaning-pacific-pines.html"
     }
   ]
 }
