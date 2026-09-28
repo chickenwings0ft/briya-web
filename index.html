@@ -1586,7 +1586,7 @@
         `<div class="photo-thumb"><img src="${p.data}" /><button type="button" onclick="removePhoto(${i})">×</button></div>`
       ).join('');
     }
-    function submitForm(e) {
+    async function submitForm(e) {
       e.preventDefault();
       const btn = document.getElementById('submitBtn');
       const msg = document.getElementById('formMsg');
