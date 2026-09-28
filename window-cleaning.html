@@ -193,6 +193,18 @@
     .photo-thumb { position: relative; width: 72px; height: 72px; border-radius: 8px; overflow: hidden; border: 1.5px solid #d1d9e6; }
     .photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .photo-thumb button { position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,.55); border: none; color: #fff; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
+  
+    /* ─── CTA BANNER (homepage style) ─── */
+    .cta-banner { position:relative; background: linear-gradient(135deg, #091d38 0%, #1557a8 100%); padding: 72px 0; text-align:center; overflow:hidden; }
+    .cta-banner::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .cta-banner::after { content:''; position:absolute; width:600px; height:600px; border-radius:50%; background:rgba(255,255,255,0.04); top:-200px; right:-100px; pointer-events:none; }
+    .cta-banner-inner { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:32px; }
+    .cta-banner p { font-size: 21px; line-height: 1.6; max-width: 620px; color: rgba(255,255,255,.9); margin:0; }
+    .cta-banner p strong { color: white; display: block; font-size: 26px; font-weight:800; letter-spacing: -.02em; margin-bottom: 6px; font-family:'Plus Jakarta Sans',sans-serif; }
+    .cta-banner-btn { display:inline-flex; align-items:center; gap:10px; background:#fff; color:#091d38; padding:16px 36px; border-radius:12px; font-size:16px; font-weight:800; text-decoration:none; transition:transform .2s, box-shadow .2s; box-shadow:0 4px 20px rgba(0,0,0,.2); letter-spacing:-.01em; }
+    .cta-banner-btn:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,0,0,.3); }
+    .cta-banner-btn svg { width:16px; height:16px; stroke:#091d38; fill:none; stroke-width:2.5; }
+    .reviews-section { background: #ffffff; }
   </style>
 </head>
 <body>
@@ -291,7 +303,29 @@
   <section class="section section-alt"><div class="container detail-inner"><div class="detail-img"><img src="window cleaning.avif" alt="Window cleaning Gold Coast" /></div><div><p class="section-tag">What We Do</p><h2 class="section-title">What's Included in a Window Clean</h2><p class="section-sub">We clean every pane thoroughly using professional techniques for a streak-free, clear finish.</p><ul class="detail-list"><li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> External window cleaning (all storeys)</li><li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Water spot and mineral deposit removal</li><li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Frame and sill wipe-down</li><li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Streak-free finish on all glass</li><li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Safe for all standard window types</li><li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Can be combined with house washing</li></ul></div></div></section>
   <section class="section"><div class="container" style="text-align:center;"><p class="section-tag">Track Record</p><h2 class="section-title">Trusted Across the Gold Coast</h2><div class="trust-grid"><div class="trust-card"><div class="trust-num">500<span>+</span></div><div class="trust-label">Properties Cleaned</div></div><div class="trust-card"><div class="trust-num">100<span>%</span></div><div class="trust-label">Fully Insured</div></div><div class="trust-card"><div class="trust-num">5<span>★</span></div><div class="trust-label">Customer Rating</div></div><div class="trust-card"><div class="trust-num">3</div><div class="trust-label">Areas Serviced</div></div></div></div></section>
   <section class="section section-alt"><div class="container" style="text-align:center;"><p class="section-tag">Questions</p><h2 class="section-title">Window Cleaning FAQs</h2><div class="faq-list"><div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you clean internal windows too?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">We primarily focus on external windows. Let us know in the form if you need internal cleaning too and we'll quote accordingly.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>How long does it take?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Most homes take 1–3 hours depending on the number of windows and storeys.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Can you remove hard water stains?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Most water spots come off well. Very heavy mineral deposits may require a specialist treatment — we'll let you know when quoting.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do I need to be home?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">For external-only cleaning, usually not. If we need indoor access we'll arrange a time that suits you.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span>Do you offer free quotes?</span><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div><div class="faq-a">Yes, always. Fill in the form above and we'll get back to you quickly.</div></div></div></div></section>
-  <div class="cta-strip"><div class="container"><h2>Ready for Streak-Free Windows?</h2><p>Get a fast, free quote today — no obligation, no hassle.</p><a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" class="btn-cta"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Get My Free Quote</a></div></div>
+
+  <!-- ═══════════════════════════════════════════
+       CTA BANNER
+  ══════════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="container cta-banner-inner">
+      <p><strong>Your property deserves better.</strong> If the outside is starting to look tired, built-up or harder to maintain — a professional clean makes a visible difference.</p>
+      <a href="#quote" class="cta-banner-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Get a Free Quote
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       GOOGLE REVIEWS (Elfsight)
+  ══════════════════════════════════════════════ -->
+  <section class="section reviews-section" style="background:#ffffff;">
+    <div class="container">
+      <script src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-a391a66c-ccff-42f5-85e5-244aa3d18a93" data-elfsight-app-lazy></div>
+    </div>
+  </section>
   <footer class="footer"><div class="container footer-inner"><a href="index.html"><img src="Logo Briya Exterior Cleaning.jpg" alt="Briya" /></a><div class="footer-links"><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="index.html#contact">Contact</a></div><p class="footer-copy">© 2026 Briya Exterior Cleaning</p></div></footer>
   <script>
     function trackCall(source) {
