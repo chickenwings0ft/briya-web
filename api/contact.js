@@ -38,8 +38,9 @@ export default async function handler(req, res) {
   const confirmationHtml = `
     <div style="font-family:sans-serif;max-width:560px;margin:0 auto;background:#ffffff;">
       <div style="background:#0b2043;padding:28px 32px;border-radius:10px 10px 0 0;text-align:center;">
+        <img src="https://www.briya.com.au/Logo%20Briya%20Exterior%20Cleaning.jpg" alt="Briya Exterior Cleaning" style="height:56px;width:auto;display:block;margin:0 auto 14px;" />
         <h1 style="color:#ffffff;font-size:22px;margin:0;letter-spacing:0.04em;">BRIYA EXTERIOR CLEANING</h1>
-        <p style="color:rgba(255,255,255,0.65);font-size:13px;margin:6px 0 0;">Gold Coast · Byron Bay · Brisbane</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:13px;margin:6px 0 0;">Gold Coast and surrounding areas</p>
       </div>
       <div style="padding:36px 32px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;">
         <h2 style="color:#142740;font-size:20px;margin:0 0 12px;">Hi ${firstName}, we've received your request!</h2>
@@ -55,9 +56,12 @@ export default async function handler(req, res) {
         <p style="color:#5a6272;line-height:1.7;margin:0 0 28px;">
           If you have any urgent questions in the meantime, don't hesitate to call us directly at <a href="tel:0415908436" style="color:#1a5fa8;font-weight:600;">0415 908 436</a> or reply to this email.
         </p>
-        <div style="text-align:center;">
-          <a href="https://www.briya.com.au" style="display:inline-block;background:#1a5fa8;color:#ffffff;padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;">
+        <div style="text-align:center;margin-bottom:16px;">
+          <a href="https://www.briya.com.au" style="display:inline-block;background:#1a5fa8;color:#ffffff;padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;margin-right:10px;">
             Visit Our Website
+          </a>
+          <a href="https://www.instagram.com/briya.exteriorcleaning/" style="display:inline-block;background:linear-gradient(135deg,#f9a51a,#ee5135,#c32e8c);color:#ffffff;padding:13px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;">
+            📸 Instagram
           </a>
         </div>
         <p style="margin-top:32px;font-size:12px;color:#aaa;text-align:center;">
