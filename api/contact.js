@@ -40,7 +40,7 @@ export default async function handler(req, res) {
       <div style="background:#0b2043;padding:28px 32px;border-radius:10px 10px 0 0;text-align:center;">
         <img src="https://www.briya.com.au/Logo%20Briya%20Exterior%20Cleaning.jpg" alt="Briya Exterior Cleaning" style="height:56px;width:auto;display:block;margin:0 auto 14px;" />
         <h1 style="color:#ffffff;font-size:22px;margin:0;letter-spacing:0.04em;">BRIYA EXTERIOR CLEANING</h1>
-        <p style="color:rgba(255,255,255,0.65);font-size:13px;margin:6px 0 0;">Gold Coast and surrounding areas</p>
+        <p style="color:rgba(255,255,255,0.65);font-size:13px;margin:6px 0 0;">Gold Coast · Byron Bay · Brisbane</p>
       </div>
       <div style="padding:36px 32px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;">
         <h2 style="color:#142740;font-size:20px;margin:0 0 12px;">Hi ${firstName}, we've received your request!</h2>
