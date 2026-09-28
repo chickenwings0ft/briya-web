@@ -1,14 +1,81 @@
 {
   "name": "briya-web",
   "rewrites": [
-    { "source": "/driveway-cleaning",    "destination": "/driveway-cleaning.html" },
-    { "source": "/house-washing",        "destination": "/house-washing.html" },
-    { "source": "/roof-cleaning",        "destination": "/roof-cleaning.html" },
-    { "source": "/gutter-cleaning",      "destination": "/gutter-cleaning.html" },
-    { "source": "/window-cleaning",      "destination": "/window-cleaning.html" },
-    { "source": "/solar-panel-cleaning", "destination": "/solar-panel-cleaning.html" },
-    { "source": "/privacy-policy",       "destination": "/privacy-policy.html" },
-    { "source": "/terms",                "destination": "/terms.html" },
-    { "source": "/thank-you",            "destination": "/thank-you.html" }
+    {
+      "source": "/driveway-cleaning",
+      "destination": "/driveway-cleaning.html"
+    },
+    {
+      "source": "/house-washing",
+      "destination": "/house-washing.html"
+    },
+    {
+      "source": "/roof-cleaning",
+      "destination": "/roof-cleaning.html"
+    },
+    {
+      "source": "/gutter-cleaning",
+      "destination": "/gutter-cleaning.html"
+    },
+    {
+      "source": "/window-cleaning",
+      "destination": "/window-cleaning.html"
+    },
+    {
+      "source": "/solar-panel-cleaning",
+      "destination": "/solar-panel-cleaning.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/thank-you",
+      "destination": "/thank-you.html"
+    },
+    {
+      "source": "/driveway-cleaning/surfers-paradise",
+      "destination": "/driveway-cleaning-surfers-paradise.html"
+    },
+    {
+      "source": "/driveway-cleaning/broadbeach",
+      "destination": "/driveway-cleaning-broadbeach.html"
+    },
+    {
+      "source": "/driveway-cleaning/burleigh-heads",
+      "destination": "/driveway-cleaning-burleigh-heads.html"
+    },
+    {
+      "source": "/driveway-cleaning/palm-beach",
+      "destination": "/driveway-cleaning-palm-beach.html"
+    },
+    {
+      "source": "/driveway-cleaning/robina",
+      "destination": "/driveway-cleaning-robina.html"
+    },
+    {
+      "source": "/driveway-cleaning/varsity-lakes",
+      "destination": "/driveway-cleaning-varsity-lakes.html"
+    },
+    {
+      "source": "/driveway-cleaning/mermaid-waters",
+      "destination": "/driveway-cleaning-mermaid-waters.html"
+    },
+    {
+      "source": "/driveway-cleaning/southport",
+      "destination": "/driveway-cleaning-southport.html"
+    },
+    {
+      "source": "/driveway-cleaning/nerang",
+      "destination": "/driveway-cleaning-nerang.html"
+    },
+    {
+      "source": "/driveway-cleaning/coomera",
+      "destination": "/driveway-cleaning-coomera.html"
+    }
   ]
 }
