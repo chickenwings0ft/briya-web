@@ -158,6 +158,19 @@
     .pref-opt label { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 10px; border: 1.5px solid #d1d9e6; border-radius: 8px; font-size: 13px; font-weight: 600; color: #5a6272; cursor: pointer; transition: border-color .15s, background .15s, color .15s; width: 100%; }
     .pref-opt input[type=radio]:checked + label { border-color: #2272cc; background: #ebf4ff; color: #1a5fa8; }
     .pref-opt label svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+  
+    .photo-upload { margin-bottom: 14px; }
+    .photo-upload label { font-size: 12px; font-weight: 600; color: var(--navy, #142740); display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: .04em; }
+    .photo-drop { border: 2px dashed #c8d4e3; border-radius: 10px; padding: 18px 16px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; background: #f9fbfd; }
+    .photo-drop:hover { border-color: #2272cc; background: #f0f6ff; }
+    .photo-drop input[type=file] { display: none; }
+    .photo-drop-icon { font-size: 26px; margin-bottom: 6px; }
+    .photo-drop p { font-size: 13px; color: #718096; margin: 0; line-height: 1.5; }
+    .photo-drop p strong { color: #2272cc; }
+    .photo-previews { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .photo-thumb { position: relative; width: 72px; height: 72px; border-radius: 8px; overflow: hidden; border: 1.5px solid #d1d9e6; }
+    .photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .photo-thumb button { position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,.55); border: none; color: #fff; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
   </style>
 </head>
 <body>
@@ -216,7 +229,16 @@
           <div class="form-group"><label>Phone</label><input id="svcPhone" type="tel" placeholder="04xx xxx xxx" required /></div>
           <div class="form-group"><label>Suburb</label><input id="svcSuburb" type="text" placeholder="e.g. Burleigh Heads" /></div>
           <div class="form-group"><label>Details</label><textarea id="svcDetails" placeholder="Number of panels, roof type, last time cleaned..."></textarea></div>
-                    <div class="contact-pref">
+                              <div class="photo-upload">
+            <label>Photos <span style="font-weight:400;text-transform:none;color:#718096;">(optional, max 3)</span></label>
+            <div class="photo-drop" onclick="document.getElementById('photoInput').click()">
+              <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotos(this)" />
+              <div class="photo-drop-icon">📷</div>
+              <p><strong>Click to add photos</strong><br>Helps us give a more accurate quote</p>
+            </div>
+            <div class="photo-previews" id="photoPreviews"></div>
+          </div>
+          <div class="contact-pref">
             <label>Preferred contact method</label>
             <div class="pref-options">
               <div class="pref-opt">
@@ -271,6 +293,40 @@
   <script>
     function toggleMobileNav() { document.getElementById('mobileMenu').classList.toggle('open'); }
     function closeMobileNav() { document.getElementById('mobileMenu').classList.remove('open'); }
+    
+    const _selectedPhotos = [];
+    function handlePhotos(input) {
+      const files = Array.from(input.files).slice(0, 3 - _selectedPhotos.length);
+      files.forEach(file => {
+        if (_selectedPhotos.length >= 3) return;
+        const reader = new FileReader();
+        reader.onload = ev => {
+          const img = new Image();
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const MAX = 1200;
+            let w = img.width, h = img.height;
+            if (w > MAX || h > MAX) { if (w > h) { h = h * MAX / w; w = MAX; } else { w = w * MAX / h; h = MAX; } }
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+            const data = canvas.toDataURL('image/jpeg', 0.75);
+            _selectedPhotos.push({ name: file.name, data });
+            renderPhotoThumbs();
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+      input.value = '';
+    }
+    function removePhoto(i) { _selectedPhotos.splice(i, 1); renderPhotoThumbs(); }
+    function renderPhotoThumbs() {
+      const el = document.getElementById('photoPreviews');
+      if (!el) return;
+      el.innerHTML = _selectedPhotos.map((p, i) =>
+        `<div class="photo-thumb"><img src="${p.data}" /><button type="button" onclick="removePhoto(${i})">×</button></div>`
+      ).join('');
+    }
     async function submitForm(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.btn-submit');
@@ -290,6 +346,7 @@
             message:     document.getElementById('svcDetails').value,
             services:    [document.getElementById('svcService').value],
             contactPref: pref,
+            photos: [..._selectedPhotos],
           }),
         });
         if (res.ok) {

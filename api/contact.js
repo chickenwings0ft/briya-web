@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { firstName, lastName, email, phone, suburb, services, message, contactPref } = req.body;
+  const { firstName, lastName, email, phone, suburb, services, message, contactPref, photos } = req.body;
 
   if (!firstName || !email || !phone) {
     return res.status(400).json({ error: 'Please fill in all required fields.' });
@@ -29,6 +29,7 @@ export default async function handler(req, res) {
         <tr><td style="padding:8px 0;color:#5a6272;vertical-align:top;">Services</td><td style="padding:8px 0;font-weight:600;color:#1c1c1c;">${servicesText}</td></tr>
         <tr><td style="padding:8px 0;color:#5a6272;vertical-align:top;">Message</td><td style="padding:8px 0;color:#1c1c1c;">${message || '—'}</td></tr>
         <tr><td style="padding:8px 0;color:#5a6272;">Contact via</td><td style="padding:8px 0;font-weight:700;color:#1a5fa8;">${contactPref || 'Not specified'}</td></tr>
+        ${Array.isArray(photos) && photos.length > 0 ? `<tr><td style="padding:8px 0;color:#5a6272;vertical-align:top;">Photos</td><td style="padding:8px 0;color:#1c1c1c;">${photos.length} photo(s) attached to this email</td></tr>` : ''}
       </table>
       <p style="margin-top:24px;font-size:12px;color:#aaa;">Sent from briya.com.au</p>
     </div>
@@ -72,6 +73,14 @@ export default async function handler(req, res) {
       'Content-Type': 'application/json',
     };
 
+    // Build attachments array from photos
+    const attachments = Array.isArray(photos) && photos.length > 0
+      ? photos.map((p, i) => ({
+          filename: p.name || `photo-${i + 1}.jpg`,
+          content: p.data.includes(',') ? p.data.split(',')[1] : p.data,
+        }))
+      : [];
+
     // Send both emails in parallel
     const [notifRes, confirmRes] = await Promise.all([
       fetch('https://api.resend.com/emails', {
@@ -83,6 +92,7 @@ export default async function handler(req, res) {
           reply_to: email,
           subject: `New quote request – ${firstName} ${lastName} (${servicesText})`,
           html: notificationHtml,
+          ...(attachments.length > 0 && { attachments }),
         }),
       }),
       fetch('https://api.resend.com/emails', {
