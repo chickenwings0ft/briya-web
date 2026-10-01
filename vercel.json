@@ -96,6 +96,66 @@
     {
       "source": "/driveway-cleaning/pacific-pines",
       "destination": "/driveway-cleaning-pacific-pines.html"
+    },
+    {
+      "source": "/house-washing/surfers-paradise",
+      "destination": "/house-washing-surfers-paradise.html"
+    },
+    {
+      "source": "/house-washing/broadbeach",
+      "destination": "/house-washing-broadbeach.html"
+    },
+    {
+      "source": "/house-washing/burleigh-heads",
+      "destination": "/house-washing-burleigh-heads.html"
+    },
+    {
+      "source": "/house-washing/palm-beach",
+      "destination": "/house-washing-palm-beach.html"
+    },
+    {
+      "source": "/house-washing/robina",
+      "destination": "/house-washing-robina.html"
+    },
+    {
+      "source": "/house-washing/varsity-lakes",
+      "destination": "/house-washing-varsity-lakes.html"
+    },
+    {
+      "source": "/house-washing/mermaid-waters",
+      "destination": "/house-washing-mermaid-waters.html"
+    },
+    {
+      "source": "/house-washing/southport",
+      "destination": "/house-washing-southport.html"
+    },
+    {
+      "source": "/house-washing/nerang",
+      "destination": "/house-washing-nerang.html"
+    },
+    {
+      "source": "/house-washing/coomera",
+      "destination": "/house-washing-coomera.html"
+    },
+    {
+      "source": "/house-washing/miami",
+      "destination": "/house-washing-miami.html"
+    },
+    {
+      "source": "/house-washing/ashmore",
+      "destination": "/house-washing-ashmore.html"
+    },
+    {
+      "source": "/house-washing/labrador",
+      "destination": "/house-washing-labrador.html"
+    },
+    {
+      "source": "/house-washing/helensvale",
+      "destination": "/house-washing-helensvale.html"
+    },
+    {
+      "source": "/house-washing/pacific-pines",
+      "destination": "/house-washing-pacific-pines.html"
     }
   ]
 }
