@@ -12,6 +12,7 @@
       'ad_personalization': 'denied',
       'wait_for_update': 1500
     });
+    gtag('set', 'url_passthrough', true);
     (function(){
       if (localStorage.getItem('briya_cookie_consent') === 'accepted') {
         gtag('consent', 'update', {
@@ -30,14 +31,9 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-TCKXCDRB');</script>
   <!-- End Google Tag Manager -->
-  <!-- Google Analytics GA4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQ9HN8H6NT"></script>
+  <!-- Lead event (GA4 key event). Google Ads conversions are fired by the GTM container tags. -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-EQ9HN8H6NT');
-    gtag('event', 'conversion', { 'event_category': 'lead', 'event_label': 'form_submission' });
+    gtag('event', 'generate_lead', { 'event_category': 'lead', 'event_label': 'form_submission' });
   </script>
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />

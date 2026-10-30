@@ -12,6 +12,7 @@
       'ad_personalization': 'denied',
       'wait_for_update': 1500
     });
+    gtag('set', 'url_passthrough', true);
     (function(){
       if (localStorage.getItem('briya_cookie_consent') === 'accepted') {
         gtag('consent', 'update', {
@@ -845,7 +846,7 @@
           }),
         });
         if (res.ok) {
-          window.location.href = '/thank-you';
+          window.location.href = '/thank-you' + window.location.search;
         } else {
           throw new Error('Error');
         }
