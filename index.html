@@ -232,6 +232,7 @@
     .hero-ctas .btn { width: 100%; min-height: 56px; font-size: 15.5px; }
     .hero-foot { display: flex; flex-direction: column; align-items: stretch; gap: 22px; }
     .hero-proof { display: flex; align-items: center; gap: 14px; color: #fff; }
+    .hero-copy .hero-proof { margin-top: 28px; }
     .proof-seal { width: 50px; height: 50px; border-radius: 16px; display: grid; place-items: center; flex-shrink: 0; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
     .proof-seal svg { width: 24px; height: 24px; stroke: var(--accent); }
     .stars { display: flex; gap: 3px; margin-bottom: 4px; }
@@ -557,7 +558,7 @@
       .hero-bg { object-position: 60% 60%; }
       .hero-sub { font-size: 17.5px; margin-top: 22px; }
       .hero-ctas { margin-top: 32px; }
-      .hero-foot { flex-direction: row; align-items: flex-end; justify-content: space-between; gap: 28px; }
+      .hero-foot { flex-direction: row; align-items: flex-end; justify-content: flex-end; gap: 28px; }
       .ba-mini { flex-shrink: 0; width: 340px; }
       .section-head:not(.center) { grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: end; margin-bottom: 48px; }
       .about-top { grid-template-columns: 1.3fr .7fr; gap: 36px; align-items: end; margin-bottom: 36px; }
@@ -588,7 +589,8 @@
       :root { --section: 120px; --r-xl: 28px; --r-lg: 22px; --r-md: 16px; }
       body { padding-bottom: 0; }
       .mobile-bar, .burger, .mobile-menu, .mobile-menu.open { display: none; }
-      .float-phone { display: flex; }
+      .float-phone { display: flex; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .4s var(--ease), transform .4s var(--ease), background-color .25s; }
+      .float-phone.show { opacity: 1; transform: none; pointer-events: auto; }
       .site-header { top: 14px; left: 14px; right: 14px; }
       .header-bar { padding: 18px 28px; border-radius: 22px; gap: 20px; }
       .site-header.scrolled .header-bar { padding: 10px 12px 10px 14px; max-width: 1212px; }
@@ -612,13 +614,18 @@
       .dd-menu small { display: block; font-size: 12.5px; color: var(--muted); line-height: 1.4; }
       .header-phone span.ic { width: 40px; height: 40px; }
       .header-phone svg { width: 16px; height: 16px; }
-      .hero-inner { padding: 170px 42px 44px; gap: 56px; }
-      .hero-kicker { font-size: 13px; padding: 8px 16px 8px 12px; margin-bottom: 26px; }
-      .hero h1 { font-size: clamp(3.6rem, 6.2vw, 5.6rem); line-height: .98; }
-      .hero-sub { font-size: 18px; margin-top: 26px; }
-      .hero-ctas { margin-top: 36px; gap: 14px; }
+      /* desktop hero = exactly one screen; type scales with viewport height so nothing falls below the fold */
+      .hero-card { min-height: min(calc(100svh - 28px), 1100px); }
+      .hero-inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 48px; padding: clamp(96px, 14vh, 150px) 48px clamp(24px, 4.5vh, 48px); }
+      .hero-copy { align-self: center; }
+      .hero-foot { display: block; }
+      .hero-kicker { font-size: 13px; padding: 8px 16px 8px 12px; margin-bottom: clamp(14px, 2.6vh, 26px); }
+      .hero h1 { font-size: clamp(2.6rem, min(5.6vw, 8.6vh), 5.6rem); line-height: .98; }
+      .hero-sub { font-size: clamp(16px, 2vh, 18px); margin-top: clamp(14px, 2.6vh, 26px); max-width: 600px; }
+      .hero-ctas { margin-top: clamp(20px, 3.6vh, 36px); gap: 14px; }
+      .hero-copy .hero-proof { margin-top: clamp(22px, 4.5vh, 44px); }
       .hero-ctas .btn { min-height: 58px; padding: 0 30px; }
-      .ba-mini { width: 360px; padding: 10px; }
+      .ba-mini { width: clamp(300px, 26vw, 380px); padding: 10px; }
       .eyebrow { font-size: 12px; margin-bottom: 18px; }
       .lead { font-size: 17px; line-height: 1.75; }
       .h2 { line-height: 1.08; }
@@ -825,9 +832,6 @@
             <a href="#contact" class="btn btn-accent">Get a Free Quote <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             <a href="#results" class="btn btn-ghost">See Real Results</a>
           </div>
-        </div>
-
-        <div class="hero-foot">
           <div class="hero-proof" data-hero style="--d:.7s">
             <div class="proof-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
             <div>
@@ -835,7 +839,9 @@
               <p><strong>500+ properties cleaned</strong><br>Fully insured · Owner operated · Fast free quotes</p>
             </div>
           </div>
+        </div>
 
+        <div class="hero-foot">
           <a href="#results" class="ba-mini" data-hero style="--d:.85s">
             <div class="ba-mini-img">
               <img src="driveway cleaning.avif" alt="Driveway before and after a Briya clean" />
@@ -1463,7 +1469,10 @@
       function onScroll() {
         var y = window.scrollY || window.pageYOffset;
         header.classList.toggle('scrolled', y > 30);
-        if (bar && hero) bar.classList.toggle('show', y > hero.offsetHeight * 0.7);
+        var past = hero && y > hero.offsetHeight * 0.7;
+        if (bar) bar.classList.toggle('show', past);
+        var floatPhone = document.getElementById('floatPhone'); // markup sits after this script
+        if (floatPhone) floatPhone.classList.toggle('show', past);
       }
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
