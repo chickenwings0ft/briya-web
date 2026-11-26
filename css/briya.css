@@ -675,6 +675,35 @@
     .svc-hero .form-head h2 { font-size: 23px; font-weight: 700; letter-spacing: -.025em; color: var(--ink); line-height: 1.2; }
     .form-group .opt, .photo-upload .opt { font-weight: 500; color: var(--muted); }
 
+    /* compact quote form */
+    .svc-hero .form-card { padding: 20px 16px 18px; border-radius: var(--r-lg); }
+    .svc-hero .form-card .form-head { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; }
+    .svc-hero .form-head h2 { font-size: 19px; }
+    .svc-hero .form-chip { padding: 5px 10px; font-size: 11.5px; }
+    .svc-hero .form-row { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .svc-hero .form-group { margin-bottom: 10px; }
+    .svc-hero .form-group > label, .svc-hero .photo-upload > label, .svc-hero .contact-pref > label { font-size: 12.5px; margin-bottom: 5px; }
+    .svc-hero .form-group input, .svc-hero .form-group textarea { min-height: 44px; padding: 10px 12px; }
+    .svc-hero .form-group textarea { min-height: 62px; height: 62px; }
+    .svc-hero .service-checkboxes { display: flex; flex-wrap: wrap; gap: 6px; }
+    .svc-hero .checkbox-label { min-height: 36px; padding: 6px 11px 6px 9px; gap: 7px; font-size: 13.5px; border-radius: 999px; }
+    .svc-hero .form-group .checkbox-label input[type="checkbox"] { width: 16px; height: 16px; border-radius: 50%; background-size: 10px 10px; }
+    .form-split { display: grid; gap: 10px; margin-bottom: 14px; }
+    .svc-hero .photo-upload, .svc-hero .contact-pref { margin-bottom: 0; }
+    .svc-hero .upl { gap: 8px; }
+    .svc-hero .upl-zone-wrap { min-height: 0; }
+    .svc-hero .upl-zone { flex-direction: row; justify-content: flex-start; gap: 10px; min-height: 44px; padding: 6px 12px; border-width: 1.5px; }
+    .svc-hero .upl-say { flex-direction: row; align-items: baseline; gap: 6px; text-align: left; }
+    .svc-hero .upl-icon { width: 26px; height: 26px; }
+    .svc-hero .upl-now { max-width: 100%; }
+    .svc-hero .upl-file { width: 64px; }
+    .svc-hero .pref-options { gap: 6px; }
+    .svc-hero .pref-opt label { min-height: 44px; font-size: 13.5px; padding: 0 10px; }
+    .svc-hero #submitBtn { min-height: 52px; font-size: 15.5px; }
+    .svc-hero .form-note { margin-top: 10px; font-size: 12px; }
+    .svc-hero .form-head h2 { white-space: nowrap; }
+    .svc-hero .upl-say b { white-space: nowrap; }
+
     .perks { padding: 22px 0 0; }
     .perks-grid { display: grid; gap: 10px; }
     .perk { display: flex; align-items: center; gap: 13px; padding: 14px 16px; border-radius: var(--r-md); background: #fff; border: 1px solid var(--line); }
@@ -731,6 +760,9 @@
       .perks-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (min-width: 600px) {
+      .form-split { grid-template-columns: 1fr 1fr; }
+      .form-split .upl-say span { display: none; }
+      .svc-hero .form-card { padding: 24px 24px 20px; }
       .svc-hero-inner { padding: 128px 32px 32px; }
       .hero-checks { grid-template-columns: repeat(3, auto); justify-content: start; gap: 10px 24px; }
     }
@@ -742,11 +774,12 @@
     @media (min-width: 1024px) {
       .site-header.scrolled .nav-dd > button.is-active { color: var(--navy-900); }
       .nav-dd > button.is-active::after { transform: scaleX(1); }
-      .svc-hero .hero-copy { align-self: start; position: sticky; top: 120px; padding-top: 28px; }
-      .svc-hero-inner { grid-template-columns: minmax(0, 1fr) 480px; align-items: start; gap: 56px; padding: 140px 48px 52px; }
+      .svc-hero .hero-copy { align-self: center; }
+      .svc-hero-inner { grid-template-columns: minmax(0, 1fr) 460px; align-items: center; gap: 56px; padding: 140px 48px 52px; }
       .svc-hero h1 { font-size: clamp(2.8rem, 4.6vw, 4.6rem); }
       .hero-checks { grid-template-columns: 1fr; gap: 12px; }
-      .svc-hero .form-card { padding: 30px 28px; }
+      .svc-hero .form-card { padding: 24px 24px 20px; }
+      .svc-hero .form-group input, .svc-hero .form-group textarea { font-size: 15px; }
       .perks { padding-top: 28px; }
       .perks-grid { grid-template-columns: repeat(4, 1fr); gap: 14px; }
       .perk { padding: 18px; }
