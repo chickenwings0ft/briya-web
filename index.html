@@ -193,9 +193,12 @@
     .site-header.scrolled .header-phone { color: var(--ink); }
     .site-header.scrolled .header-phone span.ic { background: var(--bg); border-color: var(--line); backdrop-filter: none; -webkit-backdrop-filter: none; }
     .site-header.scrolled .burger { background: var(--navy-900); color: #fff; }
-    .site-header.scrolled .brand { box-shadow: none; }
-    .brand { display: block; flex-shrink: 0; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 20px -10px rgba(0,0,0,.5); }
-    .brand img { height: 46px; width: auto; transition: height .4s var(--ease); }
+    .brand { position: relative; display: block; flex-shrink: 0; transition: transform .35s var(--ease); }
+    .brand img { height: 52px; width: auto; transition: height .4s var(--ease), opacity .35s var(--ease); }
+    .brand .logo-light { filter: drop-shadow(0 2px 10px rgba(6,20,40,.35)); }
+    .brand .logo-dark { position: absolute; left: 0; top: 0; opacity: 0; }
+    .site-header.scrolled .brand .logo-light { opacity: 0; }
+    .site-header.scrolled .brand .logo-dark { opacity: 1; }
     .nav-pill { display: none; }
     .header-actions { display: flex; align-items: center; gap: 8px; }
     .header-actions > .btn { display: none; }
@@ -456,7 +459,7 @@
     .footer-top .acts { display: grid; gap: 10px; }
     .footer-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 20px; padding: 40px 0; }
     .footer-brand { grid-column: 1 / -1; }
-    .footer-brand img { height: 66px; width: auto; border-radius: 13px; }
+    .footer-brand img { height: 84px; width: auto; }
     .footer-brand p { margin-top: 16px; font-size: 14.5px; line-height: 1.7; max-width: 340px; }
     .footer-social { display: inline-flex; align-items: center; gap: 9px; margin-top: 16px; min-height: 44px; color: rgba(255,255,255,.78); font-size: 13.5px; font-weight: 600; }
     .footer h4 { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
@@ -548,7 +551,7 @@
     /* ══ md ≥ 768px — tablets ═══════════════════════════════════════════ */
     @media (min-width: 768px) {
       .header-bar { padding: 16px 22px; }
-      .brand img { height: 56px; }
+      .brand img { height: 62px; }
       .header-actions > .btn { display: inline-flex; }
       .hero-card { min-height: clamp(640px, calc(100svh - 28px), 920px); }
       .hero-shade { background:
@@ -594,8 +597,8 @@
       .site-header { top: 14px; left: 14px; right: 14px; }
       .header-bar { padding: 18px 28px; border-radius: 22px; gap: 20px; }
       .site-header.scrolled .header-bar { padding: 10px 12px 10px 14px; max-width: 1212px; }
-      .brand img { height: 62px; }
-      .site-header.scrolled .brand img { height: 50px; }
+      .brand img { height: 68px; }
+      .site-header.scrolled .brand img { height: 52px; }
       .site-header.scrolled .nav-pill { box-shadow: none; background: transparent; }
       .nav-pill { display: flex; align-items: center; gap: 2px; background: #fff; border-radius: calc(var(--r-btn) + 6px); padding: 6px; box-shadow: 0 10px 30px -12px rgba(6,20,40,.35); }
       .nav-pill > a, .nav-dd > button { position: relative; display: inline-flex; align-items: center; gap: 6px; padding: 10px 15px; border-radius: var(--r-btn); font-size: 14.5px; font-weight: 600; color: var(--ink); background: none; border: 0; cursor: pointer; transition: background-color .25s, color .25s; }
@@ -679,7 +682,7 @@
       .footer { padding: 90px 0 36px; }
       .footer-cols { grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 40px; padding: 56px 0; }
       .footer-brand { grid-column: auto; }
-      .footer-brand img { height: 74px; }
+      .footer-brand img { height: 92px; }
     }
 
     /* ══ xl ≥ 1200px — wide desktops ════════════════════════════════════ */
@@ -763,7 +766,8 @@
   <header class="site-header" id="siteHeader">
     <div class="header-bar">
       <a href="/" class="brand" aria-label="Briya Exterior Cleaning — home">
-        <img src="Logo Briya Exterior Cleaning.jpg" alt="Briya Exterior Cleaning" width="54" height="62" />
+        <img class="logo-light" src="img/logo-briya-light.webp" alt="Briya Exterior Cleaning" width="297" height="360" />
+        <img class="logo-dark" src="img/logo-briya-dark.webp" alt="" aria-hidden="true" width="297" height="360" />
       </a>
 
       <nav class="nav-pill" aria-label="Primary">
@@ -1244,7 +1248,7 @@
 
       <div class="footer-cols">
         <div class="footer-brand">
-          <img src="Logo Briya Exterior Cleaning.jpg" alt="Briya Exterior Cleaning" loading="lazy" />
+          <img src="img/logo-briya-light.webp" alt="Briya Exterior Cleaning" loading="lazy" width="297" height="360" />
           <p>Premium exterior cleaning for homes, strata and selected commercial properties across the Gold Coast, Byron Bay and Brisbane.</p>
           <a class="footer-social" href="https://www.instagram.com/briya.exteriorcleaning/" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig-f2" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#ffd879"/><stop offset="25%" stop-color="#f9a51a"/><stop offset="50%" stop-color="#ee5135"/><stop offset="75%" stop-color="#c32e8c"/><stop offset="100%" stop-color="#6d3cba"/></radialGradient></defs><rect width="32" height="32" rx="8" fill="url(#ig-f2)"/><rect x="9" y="9" width="14" height="14" rx="4" stroke="white" stroke-width="1.8" fill="none"/><circle cx="16" cy="16" r="4" stroke="white" stroke-width="1.8" fill="none"/><circle cx="21.2" cy="10.8" r="1" fill="white"/></svg>
